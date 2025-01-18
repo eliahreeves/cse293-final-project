@@ -6,13 +6,16 @@
 \usepackage{fancyhdr}
 \usepackage[utf8]{inputenc}
 \usepackage[TS1,T1]{fontenc}
-% \usepackage{fourier, heuristica}
 \usepackage{array, booktabs}
 \usepackage{graphicx}
 \usepackage[x11names,table]{xcolor}
-\usepackage{caption}
+\usepackage{titling}
 
-\DeclareCaptionFont{black}{\color{black}}
+\setlength{\droptitle}{-0.75in}
+
+\hypersetup{
+    colorlinks=false}
+    
 \newcommand{\foo}{\color{black}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
 
 \fancypagestyle{firstpage}{%
@@ -44,27 +47,30 @@ The primary objective of our final project is to implement a basic Arithmetic Lo
 
 \section*{Additional Goals}
 
-Depending on time remaining after completing our primary objective we will examine the feasibility of implementing the protocols necessary to communicate with the ALU over the internet.
+Depending on time remaining after completing our primary objective we will examine the feasibility of implementing the protocols necessary to communicate with the ALU over the internet requiring a TCP/IP stack. This would allow the ALU to be controlled from anywhere in the world. Although this would be quite difficult, it would be a very interesting challenge to tackle, and our design could be used as the foundation for a high performance IoT device.
 
-\begin{table}
-    \renewcommand\arraystretch{1.4}\arrayrulecolor{black}
-    \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{5cm}}
-    \addlinespace[1.5ex]
-    1947 & AT and T Bell Labs develop the idea of cellular phones\\
-    1968 & Xerox Palo Alto Research Centre envisage the 'Dynabook\\
-    1971 & Busicom 'Handy-LE' Calculator\\
-    1973 & First mobile handset invented by Martin Cooper\\
-    1978 & Parker Bros. Merlin Computer Toy\\
-    1981 & Osborne 1 Portable Computer\\
-    1982 & Grid Compass 1100 Clamshell Laptop\\
-    1983 & TRS-80 Model 100 Portable PC\\
-    1984 & Psion Organiser Handheld Computer\\
-    1991 & Psion Series 3 Minicomputer\\
-    \end{tabular}
-\end{table}
-\bibliographystyle{IEEEtran}
-\bibliography{references}
+\section*{Intellectual Property Cores}
 
+Seeing as the core of this project is creating an Ethernet controlled device, we will create the Ethernet modules from scratch. In order to understand the protocols we will be implementing, we will be using resources available online. A comprehensive resource we may exime is \href{https://github.com/alexforencich/verilog-ethernet/tree/master/example/NexysVideo/fpga}{\underline{Alex Forencich's Ethernet Implementation}}.
 
+For functionality adjacent to Ethernet communication, we may use existing intellectual property (IP) cores. IP cores we will include \href{https://github.com/bespoke-silicon-group/basejump_stl}{\underline{basejump\_stl}} which contains a variety of useful modules for our project including a multiplier and divider.
+
+\section*{Required Hardware}
+
+For this project we will use the Nexys A7 FPGA board. This board contains a built-in Ethernet port, adequate system resources and an AMD MicroBlaze processor. All of these factors make it an ideal choice for a networking project.
+
+\section*{Project Timeline}
+
+\subsection*{Week 1 - Week 2}
+
+Make significant progress implementing the Ethernet communication protocols. Ideally some testing will have been done and basic Ethernet communication will be close to functional.
+
+\subsection*{Week 3 - Week 5}
+
+Complete the Ethernet communication protocols and connect to the ALU. Create python interface and verify Implementation. Evaluate feasibility of implementing TCP/IP stack, and potentially begin implementation.
+
+\subsection*{Week 6 - Week 7}
+
+Wrap up project and prepare for presentation. Create demonstration of functionality and ensure all code is documented adequately. If TCP/IP stack was implemented, test functionality.
 
 \end{document}
