@@ -1,0 +1,70 @@
+% THIS TEMPLATE IS A WORK IN PROGRESS
+
+\documentclass{article}
+
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[TS1,T1]{fontenc}
+% \usepackage{fourier, heuristica}
+\usepackage{array, booktabs}
+\usepackage{graphicx}
+\usepackage[x11names,table]{xcolor}
+\usepackage{caption}
+
+\DeclareCaptionFont{black}{\color{black}}
+\newcommand{\foo}{\color{black}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+\fancypagestyle{firstpage}{%
+  \lhead{UC Santa Cruz}
+  \rhead{
+  CSE 293: Verilog Project to Silicon - Winter 2025}
+}
+
+%%%% PROJECT TITLE
+\title{Ethernet-Based Arithmetic Logic Unit and Beyond\\
+        \Large \emph{FPGA Implementation Track}}
+
+
+\author{{Eliah Reeves} - \emph{Computer Engineering B.S.}\\ {Eric Chuang} - \emph{Computer Engineering B.S.}}
+
+\date{\vspace{-5ex}} %NO DATE
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firstpage}
+\section*{Context}
+
+Ethernet has several many significant advantages over traditional serial communication protocols. Ethernet communication offers higher bandwidth and more flexible network topologies through its packet-based approach. While serial communication transmits data sequentially over a single channel with direct point-to-point connections, Ethernet enables multiple devices to communicate over a shared medium using CSMA/CD (Carrier Sense Multiple Access with Collision Detection) or switched networks. Modern Ethernet standards support data rates from 100 Mbps to 400 Gbps, far exceeding typical serial protocols like UART which typically operate at rates in the kbps. This increased performance comes with a trade-off in complexity, as Ethernet requires more sophisticated hardware and protocols to manage data transmission.
+
+\section*{Objectives}
+
+The primary objective of our final project is to implement a basic Arithmetic Logic Unit (ALU) that can be controlled over an Ethernet connection. This will be very similar to the ALU we implemented in the first project but with the added complexity of Ethernet communication instead of UART. The ALU will be capable of performing basic arithmetic operations such as addition, signed multiplication, and signed division. To demonstrate functionality we will also create a python library which will allow a user to control the ALU over Ethernet.
+
+\section*{Additional Goals}
+
+Depending on time remaining after completing our primary objective we will examine the feasibility of implementing the protocols necessary to communicate with the ALU over the internet.
+
+\begin{table}
+    \renewcommand\arraystretch{1.4}\arrayrulecolor{black}
+    \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{5cm}}
+    \addlinespace[1.5ex]
+    1947 & AT and T Bell Labs develop the idea of cellular phones\\
+    1968 & Xerox Palo Alto Research Centre envisage the 'Dynabook\\
+    1971 & Busicom 'Handy-LE' Calculator\\
+    1973 & First mobile handset invented by Martin Cooper\\
+    1978 & Parker Bros. Merlin Computer Toy\\
+    1981 & Osborne 1 Portable Computer\\
+    1982 & Grid Compass 1100 Clamshell Laptop\\
+    1983 & TRS-80 Model 100 Portable PC\\
+    1984 & Psion Organiser Handheld Computer\\
+    1991 & Psion Series 3 Minicomputer\\
+    \end{tabular}
+\end{table}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+
+
+\end{document}
