@@ -1,0 +1,299 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2.1 (lin64) Build 5266912 Sun Dec 15 09:03:31 MST 2024
+| Date         : Fri Jan 24 14:25:23 2025
+| Host         : DESKTOP-U8LBIVB running 64-bit Ubuntu 24.04.1 LTS
+| Command      : report_methodology -file fpga_methodology_drc_routed.rpt -pb fpga_methodology_drc_routed.pb -rpx fpga_methodology_drc_routed.rpx
+| Design       : fpga
+| Device       : xc7a200tsbg484-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 41
++-----------+----------+-----------------------------------------------------------+--------+
+| Rule      | Severity | Description                                               | Checks |
++-----------+----------+-----------------------------------------------------------+--------+
+| SYNTH-5   | Warning  | Mapped onto distributed RAM because of timing constraints | 4      |
+| SYNTH-6   | Warning  | Timing of a RAM block might be sub-optimal                | 2      |
+| SYNTH-16  | Warning  | Address collision                                         | 1      |
+| TIMING-11 | Warning  | Inappropriate max delay with datapath only option         | 2      |
+| TIMING-18 | Warning  | Missing input or output delay                             | 5      |
+| XDCH-2    | Warning  | Same min and max delay values on IO port                  | 27     |
++-----------+----------+-----------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+SYNTH-5#1 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_inst/arp_inst/arp_cache_inst/valid_mem_reg_0_127_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#2 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_inst/arp_inst/arp_cache_inst/valid_mem_reg_128_255_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#3 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_inst/arp_inst/arp_cache_inst/valid_mem_reg_256_383_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#4 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_inst/arp_inst/arp_cache_inst/valid_mem_reg_384_511_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-6#1 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance core_inst/udp_complete_inst/ip_complete_inst/arp_inst/arp_cache_inst/ip_addr_mem_reg, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#2 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance core_inst/udp_complete_inst/ip_complete_inst/arp_inst/arp_cache_inst/mac_addr_mem_reg, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-16#1 Warning
+Address collision  
+Block RAM core_inst/udp_complete_inst/ip_complete_inst/arp_inst/arp_cache_inst/ip_addr_mem_reg may get memory collision error if read and write address collide. Use of address collision resolution circuitry is recommended.
+Related violations: <none>
+
+TIMING-11#1 Warning
+Inappropriate max delay with datapath only option  
+A max delay constraint with -datapath_only has been applied between core_inst/eth_mac_inst/eth_mac_1g_rgmii_inst/rgmii_phy_if_inst/rgmii_tx_clk_1_reg/C and core_inst/eth_mac_inst/eth_mac_1g_rgmii_inst/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/D1. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
+Related violations: <none>
+
+TIMING-11#2 Warning
+Inappropriate max delay with datapath only option  
+A max delay constraint with -datapath_only has been applied between core_inst/eth_mac_inst/eth_mac_1g_rgmii_inst/rgmii_phy_if_inst/rgmii_tx_clk_2_reg/C and core_inst/eth_mac_inst/eth_mac_1g_rgmii_inst/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/D2. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on phy_rx_ctl relative to the rising and/or falling clock edge(s) of phy_rx_clk.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on phy_rxd[0] relative to the rising and/or falling clock edge(s) of phy_rx_clk.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on phy_rxd[1] relative to the rising and/or falling clock edge(s) of phy_rx_clk.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on phy_rxd[2] relative to the rising and/or falling clock edge(s) of phy_rx_clk.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on phy_rxd[3] relative to the rising and/or falling clock edge(s) of phy_rx_clk.
+Related violations: <none>
+
+XDCH-2#1 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'btnc' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {btnu btnl btnd btnr btnc}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 40)
+Related violations: <none>
+
+XDCH-2#2 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'btnd' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {btnu btnl btnd btnr btnc}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 40)
+Related violations: <none>
+
+XDCH-2#3 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'btnl' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {btnu btnl btnd btnr btnc}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 40)
+Related violations: <none>
+
+XDCH-2#4 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'btnr' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {btnu btnl btnd btnr btnc}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 40)
+Related violations: <none>
+
+XDCH-2#5 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'btnu' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {btnu btnl btnd btnr btnc}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 40)
+Related violations: <none>
+
+XDCH-2#6 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'phy_int_n' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {phy_int_n phy_pme_n}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 88)
+Related violations: <none>
+
+XDCH-2#7 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'phy_pme_n' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {phy_int_n phy_pme_n}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 88)
+Related violations: <none>
+
+XDCH-2#8 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'reset_n' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports reset_n]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 30)
+Related violations: <none>
+
+XDCH-2#9 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[0]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#10 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[1]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#11 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[2]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#12 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[3]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#13 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[4]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#14 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[5]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#15 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[6]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#16 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sw[7]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sw[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 53)
+Related violations: <none>
+
+XDCH-2#17 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'uart_rxd' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports uart_rxd]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 62)
+Related violations: <none>
+
+XDCH-2#18 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#19 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#20 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[2]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#21 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[3]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#22 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[4]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#23 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[5]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#24 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[6]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#25 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[7]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {led[*]}]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#26 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'phy_reset_n' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports phy_reset_n]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 86)
+Related violations: <none>
+
+XDCH-2#27 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'uart_txd' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports uart_txd]
+/home/erreeves/Documents/school/cse293/final_project/ethernet-alexforencich/example/NexysVideo/fpga/fpga.xdc (Line: 60)
+Related violations: <none>
+
+
