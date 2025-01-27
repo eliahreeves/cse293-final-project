@@ -22,5 +22,5 @@ clean: $(SUBDIRS_CLEAN)
 	-rm -rf $(TARGETS)
 
 program:
-	#djtgcfg prog -d Atlys --index 0 --file fpga/fpga.bit
-# sudo openFPGALoader -b nexys_a7_100 fpga.bit
+	# djtgcfg prog -d Atlys --index 0 --file fpga/fpga.bit
+	openFPGALoader -b nexys_a7_100 fpga.bit
