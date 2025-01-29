@@ -591,7 +591,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:25ad274b</spirit:value>
+            <spirit:value>9:aaa3ff18</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -604,12 +604,8 @@
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:33:19 UTC 2025</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:25ad274b</spirit:value>
+            <spirit:value>9:aaa3ff18</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -620,7 +616,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:25ad274b</spirit:value>
+            <spirit:value>9:aaa3ff18</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -640,7 +636,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b31e3d87</spirit:value>
+            <spirit:value>9:aa193e0c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -656,11 +652,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:28:09 UTC 2025</spirit:value>
+            <spirit:value>Wed Jan 29 22:14:13 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b31e3d87</spirit:value>
+            <spirit:value>9:aa193e0c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -680,7 +676,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:25ad274b</spirit:value>
+            <spirit:value>9:aaa3ff18</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -696,11 +692,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jan 29 18:28:09 UTC 2025</spirit:value>
+            <spirit:value>Wed Jan 29 22:14:13 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:25ad274b</spirit:value>
+            <spirit:value>9:aaa3ff18</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1001,12 +997,12 @@
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>FPGA_MAC</spirit:name>
         <spirit:displayName>Fpga Mac</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FPGA_MAC" spirit:bitStringLength="48">0xE86A64E7E830</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FPGA_MAC" spirit:bitStringLength="48">0xe86a64e7e830</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>HOST_MAC</spirit:name>
         <spirit:displayName>Host Mac</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.HOST_MAC" spirit:bitStringLength="48">0xE86A64E7E829</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.HOST_MAC" spirit:bitStringLength="48">0xe86a64e7e829</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>FPGA_IP_1</spirit:name>
@@ -1200,12 +1196,12 @@
     <spirit:parameter>
       <spirit:name>FPGA_MAC</spirit:name>
       <spirit:displayName>FPGA Mac</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.FPGA_MAC" spirit:bitStringLength="48">0xE86A64E7E830</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.FPGA_MAC" spirit:bitStringLength="48">0xe86a64e7e830</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>HOST_MAC</spirit:name>
       <spirit:displayName>HOST Mac</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.HOST_MAC" spirit:bitStringLength="48">0xE86A64E7E829</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.HOST_MAC" spirit:bitStringLength="48">0xe86a64e7e829</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>FPGA_IP_1</spirit:name>
@@ -1311,6 +1307,8 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXIS_CLK.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXIS_CLK.PHASE" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXIS_RST.POLARITY" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FPGA_MAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.HOST_MAC" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

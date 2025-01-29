@@ -129,8 +129,8 @@ input wire s00_axis_tvalid;
   rmii_axis_v1_0 #(
     .FPGA_PORT(17767),
     .HOST_PORT(17767),
-    .FPGA_MAC(48'HE86A64E7E830),
-    .HOST_MAC(48'HE86A64E7E829),
+    .FPGA_MAC(48'He86a64e7e830),
+    .HOST_MAC(48'He86a64e7e829),
     .FPGA_IP_1(10),
     .FPGA_IP_2(0),
     .FPGA_IP_3(0),

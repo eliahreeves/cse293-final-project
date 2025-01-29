@@ -124,7 +124,15 @@
         "ip_revision": "1",
         "xci_name": "design_1_rmii_axis_0_0",
         "xci_path": "ip/design_1_rmii_axis_0_0/design_1_rmii_axis_0_0.xci",
-        "inst_hier_path": "rmii_axis_0"
+        "inst_hier_path": "rmii_axis_0",
+        "parameters": {
+          "FPGA_MAC": {
+            "value": "0xe86a64e7e830"
+          },
+          "HOST_MAC": {
+            "value": "0xe86a64e7e829"
+          }
+        }
       },
       "axis_gpio_0": {
         "vlnv": "fpgasforbeginners:toolbox:axis_gpio:1.0",
