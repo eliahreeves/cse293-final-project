@@ -1,0 +1,100 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2.1 (lin64) Build 5266912 Sun Dec 15 09:03:31 MST 2024
+| Date         : Wed Jan 29 10:37:57 2025
+| Host         : titan running 64-bit Ubuntu 24.04.1 LTS
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 9
++-----------+------------------+------------------------------------------------------------------+--------+
+| Rule      | Severity         | Description                                                      | Checks |
++-----------+------------------+------------------------------------------------------------------+--------+
+| TIMING-6  | Critical Warning | No common primary clock between related clocks                   | 2      |
+| LUTAR-1   | Warning          | LUT drives async reset alert                                     | 1      |
+| PDRC-190  | Warning          | Suboptimally placed synchronized register chain                  | 1      |
+| TIMING-20 | Warning          | Non-clocked latch                                                | 1      |
+| TIMING-56 | Warning          | Missing logically or physically excluded clock groups constraint | 3      |
+| LATCH-1   | Advisory         | Existing latches in the design                                   | 1      |
++-----------+------------------+------------------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_design_1_clk_wiz_0_0 and clk_out1_design_1_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_design_1_clk_wiz_0_0] -to [get_clocks clk_out1_design_1_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#2 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_design_1_clk_wiz_0_0_1 and clk_out1_design_1_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_design_1_clk_wiz_0_0_1] -to [get_clocks clk_out1_design_1_clk_wiz_0_0]
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q[31]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[25]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[26]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[27]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[28]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[29]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[2]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[30]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[31]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[3]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[4]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[5]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[6]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[7]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[8]/PRE,
+design_1_i/rmii_axis_0/inst/packet_gen_i/crc_gen_i/lfsr_q_reg[9]/PRE
+ (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+PDRC-190#1 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell design_1_i/axis_uart_0/inst/tx_data_fifo_i/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X13Y158 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/axis_uart_0/inst/tx_data_fifo_i/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch design_1_i/axis_uart_0/inst/uart_tx_i/uart_tx_i_reg cannot be properly analyzed as its control pin design_1_i/axis_uart_0/inst/uart_tx_i/uart_tx_i_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-56#1 Warning
+Missing logically or physically excluded clock groups constraint  
+Multiple clocks are user generated or auto-derived on the source pin design_1_i/clk_wiz_0/inst/mmcm_adv_inst/CLKFBOUT but are not logically or physically exclusive with respect to one another. To have the static timing analysis match the behavior in hardware, there cannot be multiple clocks generated on the same pin and when such situation occurs, the clocks should be defined as physically or logically exclusive. The list of clocks generated on the source pin is: clkfbout_design_1_clk_wiz_0_0, clkfbout_design_1_clk_wiz_0_0_1
+Related violations: <none>
+
+TIMING-56#2 Warning
+Missing logically or physically excluded clock groups constraint  
+Multiple clocks are user generated or auto-derived on the source pin design_1_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0 but are not logically or physically exclusive with respect to one another. To have the static timing analysis match the behavior in hardware, there cannot be multiple clocks generated on the same pin and when such situation occurs, the clocks should be defined as physically or logically exclusive. The list of clocks generated on the source pin is: clk_out1_design_1_clk_wiz_0_0, clk_out1_design_1_clk_wiz_0_0_1
+Related violations: <none>
+
+TIMING-56#3 Warning
+Missing logically or physically excluded clock groups constraint  
+Multiple clocks are user generated or auto-derived on the source pin design_1_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1 but are not logically or physically exclusive with respect to one another. To have the static timing analysis match the behavior in hardware, there cannot be multiple clocks generated on the same pin and when such situation occurs, the clocks should be defined as physically or logically exclusive. The list of clocks generated on the source pin is: clk_out2_design_1_clk_wiz_0_0, clk_out2_design_1_clk_wiz_0_0_1
+Related violations: <none>
+
+LATCH-1#1 Advisory
+Existing latches in the design  
+There are 1 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+Related violations: <none>
+
+
