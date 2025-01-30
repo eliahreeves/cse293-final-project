@@ -3,8 +3,8 @@
 # SW Build 5266912 on Sun Dec 15 09:03:31 MST 2024
 # IP Build 5264866 on Sun Dec 15 16:27:47 MST 2024
 # SharedData Build 5264680 on Wed Dec 11 12:48:36 MST 2024
-# Start of session at: Wed Jan 29 14:15:19 2025
-# Process ID         : 54605
+# Start of session at: Wed Jan 29 17:47:59 2025
+# Process ID         : 2923
 # Current directory  : /home/ericbreh/school/cse293-final-project/eth_project/eth_project.runs/design_1_rmii_axis_0_0_synth_1
 # Command line       : vivado -log design_1_rmii_axis_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_rmii_axis_0_0.tcl
 # Log file           : /home/ericbreh/school/cse293-final-project/eth_project/eth_project.runs/design_1_rmii_axis_0_0_synth_1/design_1_rmii_axis_0_0.vds
@@ -19,6 +19,6 @@
 # Host memory        : 8185 MB
 # Swap memory        : 2147 MB
 # Total Virtual      : 10332 MB
-# Available Virtual  : 5685 MB
+# Available Virtual  : 7211 MB
 #-----------------------------------------------------------
 source design_1_rmii_axis_0_0.tcl -notrace

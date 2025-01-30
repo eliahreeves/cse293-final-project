@@ -130,7 +130,7 @@ input wire s00_axis_tvalid;
     .FPGA_PORT(17767),
     .HOST_PORT(17767),
     .FPGA_MAC(48'He86a64e7e830),
-    .HOST_MAC(48'He86a64e7e829),
+    .HOST_MAC(48'H34298f711e0f),
     .FPGA_IP_1(10),
     .FPGA_IP_2(0),
     .FPGA_IP_3(0),

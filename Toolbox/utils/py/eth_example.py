@@ -8,7 +8,10 @@ interface = "enx34298f711e0f"
 my_ip = [10, 0, 0, 10]
 fpga_ip = [10, 0, 0, 240]
 
-my_mac = b"\xe8\x6a\x64\xe7\xe8\x29"
+# my_mac = b"\xe8\x6a\x64\xe7\xe8\x29"
+# 34298f711e0f
+my_mac = b"\x34\x29\x8f\x71\x1e\x0f"
+
 fpga_mac = b"\xe8\x6a\x64\xe7\xe8\x30"
 
 send_string = "LEDs CHANGED!     "
@@ -20,7 +23,7 @@ class EthExampleApp:
         self.root = root
         self.running = True  # Control flag for the thread
         self.sw_value = ""  # Initialize an empty string
-
+    
         # Network details
         self.interface = interface
         self.my_ip = my_ip
@@ -107,19 +110,23 @@ class EthExampleApp:
 
         self.s_inst.send(packet)
 
+    # def getSWValue(self):
+    #     r = self.s_inst.recv(2000)
+    #     src_mac = r[6:12].hex()
+    #     dst_mac = r[0:6].hex()
+    #     print(f"Source MAC: {src_mac}, Destination MAC: {dst_mac}")
+
+    #     if src_mac == self.fpga_mac.hex():
+    #         return r[42:].decode("utf-8")
+    #     else:
+    #         print(f"src_mac: {src_mac}, expected {self.fpga_mac.hex()}")
+    #         return None
+
     def getSWValue(self):
         r = self.s_inst.recv(2000)
-        src_mac = r[6:12].hex()
-        dst_mac = r[0:6].hex()
-        print(f"Received Packet: {r.hex()}")
-        print(f"Source MAC: {src_mac}, Destination MAC: {dst_mac}")
-
-        if src_mac == self.fpga_mac.hex():
+        # check if packet matches
+        if r[0:6] == self.my_mac and r[6:12] == self.fpga_mac:
             return r[42:].decode("utf-8")
-        else:
-            print(f"Unexpected source MAC: {
-                src_mac}, expected {self.fpga_mac.hex()}")
-            return None
 
     def updateSwitches(self):
         while self.running:
