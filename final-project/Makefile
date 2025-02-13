@@ -36,6 +36,16 @@ synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit: synth/build/rtl.
 vivado_basys3_program: synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit
 	sudo $(shell which openFPGALoader) -b vivado_basys3 $<
 
+synth/vivado_nexysa7/build/nexysa7/nexysa7.runs/impl_1/nexysa7.bit: synth/build/rtl.sv2v.v synth/vivado_nexysa7/nexysa7.sv synth/vivado_nexysa7/Nexys-A7-100T-Master.xdc synth/vivado_nexysa7/vivado.tcl
+	rm -rf synth/vivado_nexysa7/build/nexysa7
+	mkdir -p synth/vivado_nexysa7/build
+	cd synth/vivado_nexysa7/build && \
+	 vivado -quiet -nolog -nojournal -notrace -mode tcl \
+	  -source ../vivado.tcl
+
+vivado_nexysa7_program: synth/vivado_nexysa7/build/nexysa7/nexysa7.runs/impl_1/nexysa7.bit
+	sudo $(shell which openFPGALoader) -b vivado_nexysa7 $<
+
 clean:
 	rm -rf \
 	 *.memh *.memb \

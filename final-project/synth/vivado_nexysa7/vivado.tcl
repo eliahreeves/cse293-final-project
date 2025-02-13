@@ -2,6 +2,14 @@
 
 create_project nexys4 nexys4 -part xc7a100tcsg324-1
 
+add_files -norecurse {
+ ../../build/rtl.sv2v.v
+ ../nexysa7.sv
+}
+add_files -fileset constrs_1 -norecurse {
+ ../Nexys-A7-100T-Master.xdc
+}
+
 #FIXME just copied
 set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
 
