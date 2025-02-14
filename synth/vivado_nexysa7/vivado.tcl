@@ -3,9 +3,7 @@ start_gui
 
 create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
 
-set_property board_part digilentinc.com:nexys-a7-100t:part0:1.2 [current_project]
-
-create_bd_design "design_1" 
+create_bd_design "block_design" 
 set_property  ip_repo_paths  /home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
 add_files -fileset constrs_1 -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/Nexys-A7-100T-Master.xdc
 
@@ -92,23 +90,21 @@ set_property name ETH_REFCLK [get_bd_ports clk_out2_0]
 
 
 # generate wrapper
-make_wrapper -files [get_files /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.srcs/sources_1/bd/design_1/design_1.bd] -top
-add_files -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+make_wrapper -files [get_files /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.srcs/sources_1/bd/block_design/block_design.bd] -top
+add_files -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.gen/sources_1/bd/block_design/hdl/block_design_wrapper.v
 
-
-# launch_runs impl_1 -to_step write_bitstream -jobs 4
 
 # Run Synthesis
-# set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY none [get_runs synth_1]
-# launch_runs synth_1 -jobs [exec nproc]
-# wait_on_run synth_1
+set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY none [get_runs synth_1]
+launch_runs synth_1 -jobs [exec nproc]
+wait_on_run synth_1
 
-# # Run PNR
-# launch_runs impl_1
-# wait_on_run impl_1
+# Run PNR
+launch_runs impl_1
+wait_on_run impl_1
 
-# # Create Bitstream
-# launch_runs impl_1 -to_step write_bitstream
-# wait_on_run impl_1
+# Create Bitstream
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
 
-# exit
+exit
