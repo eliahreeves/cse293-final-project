@@ -1,0 +1,77 @@
+{
+	"version": "1.0",
+	"modules": {
+		"design_1": {
+			"proto_instances": {
+				"/axis_gpio_0/M00_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "m00_axis_aclk"},
+						"ARESETN": { "actual": "m00_axis_aresetn"},
+						"TDATA": { "actual": "m00_axis_tdata[7:0]"},
+						"TLAST": { "actual": "m00_axis_tlast"},
+						"TREADY": { "actual": "m00_axis_tready"},
+						"TUSER": { "actual": "m00_axis_tuser[11:0]"},
+						"TVALID": { "actual": "m00_axis_tvalid"}
+					}
+				},
+				"/axis_gpio_0/S00_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "s00_axis_aclk"},
+						"ARESETN": { "actual": "s00_axis_aresetn"},
+						"TDATA": { "actual": "s00_axis_tdata[7:0]"},
+						"TLAST": { "actual": "s00_axis_tlast"},
+						"TREADY": { "actual": "s00_axis_tready"},
+						"TVALID": { "actual": "s00_axis_tvalid"}
+					}
+				},
+				"/axis_snoop_debug_0/M_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "axis_aclk"},
+						"ARESETN": { "actual": "axis_aresetn"},
+						"TDATA": { "actual": "m_axis_tdata[7:0]"},
+						"TLAST": { "actual": "m_axis_tlast"},
+						"TREADY": { "actual": "m_axis_tready"},
+						"TVALID": { "actual": "m_axis_tvalid"}
+					}
+				},
+				"/axis_uart_0/s_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESETN": { "actual": "rstn"},
+						"TDATA": { "actual": "s_axis_data[7:0]"},
+						"TLAST": { "actual": "s_axis_last"},
+						"TREADY": { "actual": "s_axis_ready"},
+						"TVALID": { "actual": "s_axis_valid"}
+					}
+				},
+				"/rmii_axis_0/M00_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "m00_axis_aclk"},
+						"ARESETN": { "actual": "m00_axis_aresetn"},
+						"TDATA": { "actual": "m00_axis_tdata[7:0]"},
+						"TLAST": { "actual": "m00_axis_tlast"},
+						"TREADY": { "actual": "m00_axis_tready"},
+						"TVALID": { "actual": "m00_axis_tvalid"}
+					}
+				},
+				"/rmii_axis_0/S00_AXIS": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "s00_axis_aclk"},
+						"ARESETN": { "actual": "s00_axis_aresetn"},
+						"TDATA": { "actual": "s00_axis_tdata[7:0]"},
+						"TLAST": { "actual": "s00_axis_tlast"},
+						"TREADY": { "actual": "s00_axis_tready"},
+						"TUSER": { "actual": "s00_axis_tuser[11:0]"},
+						"TVALID": { "actual": "s00_axis_tvalid"}
+					}
+				}
+			}
+		}
+	}
+}
