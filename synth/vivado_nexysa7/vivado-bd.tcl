@@ -1,74 +1,23 @@
 
-start_gui
+# start_gui
 
 create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
 
-# Create FIFO IP cores
-create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.2 -module_name data_fifo
-set_property -dict [list \
-    CONFIG.Component_Name {data_fifo} \
-    CONFIG.Fifo_Implementation {Common_Clock_Block_RAM} \
-    CONFIG.Input_Data_Width {8} \
-    CONFIG.Output_Data_Width {8} \
-    CONFIG.Data_Count {true} \
-    CONFIG.Full_Threshold_Assert_Value {14} \
-    CONFIG.Full_Threshold_Negate_Value {13} \
-    CONFIG.Performance_Options {First_Word_Fall_Through} \
-    CONFIG.Valid_Flag {true} \
-    CONFIG.Reset_Type {Synchronous_Reset} \
-    CONFIG.Enable_Reset_Synchronization {true} \
-] [get_ips data_fifo]
-
-create_ip -name axis_data_fifo -vendor xilinx.com -library ip -version 2.0 -module_name axis_data_fifo
-set_property -dict [list \
-    CONFIG.TDATA_NUM_BYTES {1} \
-    CONFIG.FIFO_DEPTH {16} \
-    CONFIG.HAS_TLAST {1} \
-    CONFIG.IS_ACLK_ASYNC {0} \
-    CONFIG.SYNCHRONIZATION_STAGES {2} \
-    CONFIG.HAS_WR_DATA_COUNT {1} \
-    CONFIG.HAS_PROG_FULL {1} \
-    CONFIG.PROG_FULL_THRESH {14} \
-    CONFIG.FIFO_MEMORY_TYPE {block} \
-    CONFIG.TUSER_WIDTH {0} \
-] [get_ips axis_data_fifo]
-
-# Generate the IP cores
-generate_target all [get_ips]
-
-# Add Ethernet source files
-add_files -norecurse [list \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/rmii_axis_v1_0.v" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/crc_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/eth_header_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_recv.sv"
-]
-
-# Add IP repository for remaining IP blocks
+create_bd_design "block_design" 
 set_property  ip_repo_paths  /home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
-update_ip_catalog
-
-# Create block design
-create_bd_design "block_design"
-
-# Add constraints file
 add_files -fileset constrs_1 -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/Nexys-A7-100T-Master.xdc
 
-# Create RMII AXIS instance as a hierarchical module
-create_bd_cell -type module -reference rmii_axis_v1_0 rmii_axis_0
-
-# Make RMII pins external (same as before)
-make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_TXEN]
-make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_TXD]
-make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_CRSDV]
-make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_RXERR]
-make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_RXD]
-
-# set mac adress
-# set_property CONFIG.HOST_MAC {0x34298f711e0f} [get_bd_cells rmii_axis_0]
 
 # add custom blocks
+update_ip_catalog
+
+create_bd_cell -type ip -vlnv fpgasforbeginners:toolbox:rmii_axis:1.0 rmii_axis_0
+make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_TXEN]
+make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_TXD]
+make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_CRSDV]
+make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_RXERR]
+make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_RXD]
+
 create_bd_cell -type ip -vlnv fpgasforbeginners:toolbox:axis_gpio:1.0 axis_gpio_0
 make_bd_pins_external  [get_bd_pins axis_gpio_0/SW]
 make_bd_pins_external  [get_bd_pins axis_gpio_0/LED]
@@ -158,4 +107,4 @@ wait_on_run impl_1
 launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 
-# exit
+exit
