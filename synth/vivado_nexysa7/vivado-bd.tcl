@@ -17,6 +17,9 @@ make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_TXD]
 make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_CRSDV]
 make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_RXERR]
 make_bd_pins_external  [get_bd_pins rmii_axis_0/ETH_RXD]
+# set mac adress
+set_property CONFIG.HOST_MAC {0x34298f711e0f} [get_bd_cells rmii_axis_0]
+
 
 create_bd_cell -type ip -vlnv fpgasforbeginners:toolbox:axis_gpio:1.0 axis_gpio_0
 make_bd_pins_external  [get_bd_pins axis_gpio_0/SW]
