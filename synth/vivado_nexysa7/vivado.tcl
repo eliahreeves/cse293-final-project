@@ -3,6 +3,22 @@ start_gui
 
 create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
 
+# Add constraints file
+add_files -fileset constrs_1 -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/Nexys-A7-100T-Master.xdc
+
+# Add IP repository
+set_property ip_repo_paths /home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
+update_ip_catalog
+
+# Add Ethernet source files
+add_files -norecurse [list \
+    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/rmii_axis_v1_0.v" \
+    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/crc_gen.sv" \
+    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/eth_header_gen.sv" \
+    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_gen.sv" \
+    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_recv.sv"
+]
+
 # Create FIFO IP cores
 create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.2 -module_name data_fifo
 set_property -dict [list \
@@ -28,7 +44,7 @@ set_property -dict [list \
     CONFIG.SYNCHRONIZATION_STAGES {2} \
     CONFIG.HAS_WR_DATA_COUNT {1} \
     CONFIG.HAS_PROG_FULL {1} \
-    CONFIG.PROG_FULL_THRESH {14} \
+    CONFIG.PROG_FULL_THRESH {10} \
     CONFIG.FIFO_MEMORY_TYPE {block} \
     CONFIG.TUSER_WIDTH {0} \
 ] [get_ips axis_data_fifo]
@@ -36,24 +52,8 @@ set_property -dict [list \
 # Generate the IP cores
 generate_target all [get_ips]
 
-# Add Ethernet source files
-add_files -norecurse [list \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/rmii_axis_v1_0.v" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/crc_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/eth_header_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_recv.sv"
-]
-
-# Add IP repository for remaining IP blocks
-set_property  ip_repo_paths  /home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
-update_ip_catalog
-
 # Create block design
 create_bd_design "block_design"
-
-# Add constraints file
-add_files -fileset constrs_1 -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/Nexys-A7-100T-Master.xdc
 
 # Create RMII AXIS instance as a hierarchical module
 create_bd_cell -type module -reference rmii_axis_v1_0 rmii_axis_0
@@ -139,11 +139,16 @@ set_property name ETH_TXEN [get_bd_ports ETH_TXEN_0]
 set_property name ETH_TXD [get_bd_ports ETH_TXD_0]
 set_property name ETH_REFCLK [get_bd_ports clk_out2_0]
 
+# validate the design before synthesis
+validate_bd_design
 
 # generate wrapper
-make_wrapper -files [get_files /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.srcs/sources_1/bd/block_design/block_design.bd] -top
-add_files -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.gen/sources_1/bd/block_design/hdl/block_design_wrapper.v
+make_wrapper -files [get_files block_design.bd] -top
+add_files -norecurse [make_wrapper -files [get_files block_design.bd] -top]
 
+# Set top module
+set_property top block_design_wrapper [current_fileset]
+update_compile_order -fileset sources_1
 
 # Run Synthesis
 set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY none [get_runs synth_1]
@@ -151,11 +156,11 @@ launch_runs synth_1 -jobs [exec nproc]
 wait_on_run synth_1
 
 # Run PNR
-launch_runs impl_1
+launch_runs impl_1 -jobs [exec nproc]
 wait_on_run impl_1
 
-# Create Bitstream
-launch_runs impl_1 -to_step write_bitstream
+# Generate bitstream
+launch_runs impl_1 -to_step write_bitstream -jobs [exec nproc]
 wait_on_run impl_1
 
-# exit
+# quit
