@@ -65,6 +65,7 @@ make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_CRSDV]
 make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_RXERR]
 make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_RXD]
 
+
 # set mac adress
 set_property CONFIG.HOST_MAC {0x34298f711e0f} [get_bd_cells rmii_axis_0]
 
