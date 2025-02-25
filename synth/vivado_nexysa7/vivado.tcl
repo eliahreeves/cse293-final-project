@@ -1,5 +1,5 @@
 
-start_gui
+# start_gui
 
 create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
 
@@ -112,26 +112,11 @@ connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins ax
 connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins axis_gpio_0/s00_axis_aresetn]
 
 
-# debug uart block
-create_bd_cell -type ip -vlnv fpgasforbeginners:toolbox:axis_snoop_debug:1.0 axis_snoop_debug_0
-connect_bd_intf_net [get_bd_intf_pins axis_snoop_debug_0/S01_AXIS] [get_bd_intf_pins rmii_axis_0/S00_AXIS]
-connect_bd_intf_net [get_bd_intf_pins axis_snoop_debug_0/S00_AXIS] [get_bd_intf_pins axis_gpio_0/S00_AXIS]
-connect_bd_net [get_bd_pins axis_snoop_debug_0/axis_aclk] [get_bd_pins clk_wiz_0/clk_out1]
-connect_bd_net [get_bd_pins axis_snoop_debug_0/axis_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
-
-create_bd_cell -type ip -vlnv fpgasforbeginners:toolbox:axis_uart:1.0 axis_uart_0
-connect_bd_intf_net [get_bd_intf_pins axis_uart_0/s_axis] [get_bd_intf_pins axis_snoop_debug_0/M_AXIS]
-connect_bd_net [get_bd_pins axis_uart_0/clk] [get_bd_pins clk_wiz_0/clk_out1]
-connect_bd_net [get_bd_pins axis_uart_0/rstn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
-make_bd_pins_external  [get_bd_pins axis_uart_0/UART_TX]
-
-
 # set names to match constrains
 set_property name SW [get_bd_ports SW_0]
 set_property name LED [get_bd_ports LED_0]
 set_property name RESET_N [get_bd_ports ext_reset_in_0]
 set_property name CLK [get_bd_ports clk_in1_0]
-set_property name UART_RXD_OUT [get_bd_ports UART_TX_0]
 set_property name ETH_CRSDV [get_bd_ports ETH_CRSDV_0]
 set_property name ETH_RXERR [get_bd_ports ETH_RXERR_0]
 set_property name ETH_RXD [get_bd_ports ETH_RXD_0]
@@ -163,4 +148,4 @@ wait_on_run impl_1
 launch_runs impl_1 -to_step write_bitstream -jobs [exec nproc]
 wait_on_run impl_1
 
-# quit
+# exit
