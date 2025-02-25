@@ -1,4 +1,3 @@
-
 # start_gui
 
 create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
@@ -47,6 +46,7 @@ set_property -dict [list \
     CONFIG.PROG_FULL_THRESH {10} \
     CONFIG.FIFO_MEMORY_TYPE {block} \
     CONFIG.TUSER_WIDTH {0} \
+    CONFIG.HAS_TKEEP {1} \
 ] [get_ips axis_data_fifo]
 
 # Generate the IP cores
@@ -148,4 +148,4 @@ wait_on_run impl_1
 launch_runs impl_1 -to_step write_bitstream -jobs [exec nproc]
 wait_on_run impl_1
 
-# exit
+exit
