@@ -3,19 +3,19 @@
 create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
 
 # Add constraints file
-add_files -fileset constrs_1 -norecurse /home/ericbreh/Documents/school/cse293-final-project/synth/vivado_nexysa7/Nexys-A7-100T-Master.xdc
+add_files -fileset constrs_1 -norecurse ../Nexys-A7-100T-Master.xdc
 
 # Add IP repository
-set_property ip_repo_paths /home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
+set_property ip_repo_paths ../../../third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
 update_ip_catalog
 
 # Add Ethernet source files
 add_files -norecurse [list \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/rmii_axis_v1_0.v" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/crc_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/eth_header_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_gen.sv" \
-    "/home/ericbreh/Documents/school/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_recv.sv"
+    "../../../third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/rmii_axis_v1_0.v" \
+    "../../../third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/crc_gen.sv" \
+    "../../../third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/eth_header_gen.sv" \
+    "../../../third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_gen.sv" \
+    "../../../third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/packet_recv.sv"
 ]
 
 # Create FIFO IP cores
