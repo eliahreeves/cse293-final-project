@@ -1,6 +1,3 @@
-// top module
-// connects RMII (Reduced Media Independent Interface) to AXI Stream
-// Instantiates packet_tx and packet_rx
 
 `timescale 1 ns / 1 ps
 
@@ -33,30 +30,30 @@ module ethernet #
     output [1:0]	ETH_TXD,
    
     // Ports of Axi Master Bus Interface M00_AXIS
-    input wire		m00_axis_aclk,
-    input wire		m00_axis_aresetn,
+    input wire		m_axis_clk_i,
+    input wire		m_axis_reset_ni,
     
-    output wire		m00_axis_tvalid,
-    output wire [7 : 0]	m00_axis_tdata,
-    output wire		m00_axis_tlast,
-    input wire		m00_axis_tready,
+    output wire		m_axis_tvalid_o,
+    output wire [7 : 0]	m_axis_tdata_o,
+    output wire		m_axis_tlast_o,
+    input wire		m_axis_tready_i,
 
     // Ports of Axi Slave Bus Interface S00_AXIS
-    input wire		s00_axis_aclk,
-    input wire		s00_axis_aresetn,
+    input wire		s_axis_clk_i,
+    input wire		s_axis_reset_ni,
     
-    output wire		s00_axis_tready,
-    input wire [7 : 0]	s00_axis_tdata,
-    input wire		s00_axis_tlast,
-    input wire [11:0]	s00_axis_tuser,
-    input wire		s00_axis_tvalid
+    output wire		s_axis_tready_o,
+    input wire [7 : 0]	s_axis_tdata_i,
+    input wire		s_axis_tlast_i,
+    input wire [11:0]	s_axis_tuser_i,
+    input wire		s_axis_tvalid_i
     );
 
    parameter		WORD_BYTES = 1;
    localparam		HOST_IP = {HOST_IP_1,HOST_IP_2,HOST_IP_3,HOST_IP_4};
    localparam		FPGA_IP = {FPGA_IP_1,FPGA_IP_2,FPGA_IP_3,FPGA_IP_4};
    
-   packet_gen
+   packet_tx
      #(
        .WORD_BYTES(WORD_BYTES),
        .FPGA_MAC(FPGA_MAC),   
@@ -67,20 +64,20 @@ module ethernet #
        .HOST_PORT(HOST_PORT),
        .HEADER_CHECKSUM(HEADER_CHECKSUM)
        )
-   packet_gen_i
+   packet_tx
      (
-      .CLK(s00_axis_aclk),
-      .RST(~s00_axis_aresetn),
-      .S_AXIS_TDATA(s00_axis_tdata),
-      .S_AXIS_TVALID(s00_axis_tvalid),
-      .S_AXIS_TLAST(s00_axis_tlast),
-      .S_AXIS_TREADY(s00_axis_tready),
-      .S_AXIS_TUSER(s00_axis_tuser),
-      .TX_EN(ETH_TXEN),
-      .TXD(ETH_TXD)
+      .clk_i(s_axis_clk_i),
+      .rst_i(~s_axis_reset_ni),
+      .s_axis_tdata_i(s_axis_tdata_i),
+      .S_AXIS_TVALID(s_axis_tvalid_i),
+      .S_AXIS_TLAST(s_axis_tlast_i),
+      .s_axis_tready_o(s_axis_tready_o),
+      .s_axis_tuser_i(s_axis_tuser_i),
+      .tx_valid_o(ETH_TXEN),
+      .tx_data_o(ETH_TXD)
       );
 
-   packet_recv
+   packet_rx
      #(
        .FPGA_MAC(FPGA_MAC),   
        .HOST_MAC(HOST_MAC),
@@ -90,15 +87,15 @@ module ethernet #
        .HOST_PORT(HOST_PORT),
        .CHECK_DESTINATION(CHECK_DESTINATION)
        )
-   packet_recv_i
+   packet_rx
      (
-      .clk(m00_axis_aclk),
-      .rst(~m00_axis_aresetn),
-      .M_AXIS_TDATA(m00_axis_tdata),
-      .M_AXIS_TVALID(m00_axis_tvalid),
-      .M_AXIS_TLAST(m00_axis_tlast),
-      .RXDV(ETH_CRSDV),
-      .RXD(ETH_RXD)
+      .clk_i(m_axis_clk_i),
+      .rst_i(~m_axis_reset_ni),
+      .m_axis_tdata_o(m_axis_tdata_o),
+      .m_axis_tvalid_o(m_axis_tvalid_o),
+      .m_axis_tlast_o(m_axis_tlast_o),
+      .rx_valid_i(ETH_CRSDV),
+      .rx_data_i(ETH_RXD)
       );
 
 endmodule
