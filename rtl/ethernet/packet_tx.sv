@@ -1,13 +1,6 @@
-// Converts AXI Stream data into RMII format Ethernet packets
-// Components:
-//      Data FIFO: Buffers input data
-//      State Machine: Controls packet generation (IDLE → PREAMBLE → SFD → HEADER → DATA → FCS → WAIT)
-//      header_gen: Generates Ethernet/IP/UDP headers
-//      crc_gen: Calculates FCS (Frame Check Sequence)
-
 `timescale 1ns / 1ps
 
-module packet_tx
+module packet_gen
   #(
    
    parameter [31:0] FPGA_IP = 32'hC0A80164,
@@ -33,8 +26,8 @@ module packet_tx
     input [11:0]		 s_axis_tuser_i,
 
 
-    output logic		 tx_valid_o,
-    output logic [MII_WIDTH-1:0] tx_data_o
+    output logic		 TX_EN_o,
+    output logic [MII_WIDTH-1:0] TXD_o
     );
 
 
@@ -189,7 +182,7 @@ module packet_tx
    assign s_axis_tready_o = (fifo_has_space & s_axis_tfirst) | packet_valid;
 
    // Get header
-   header_gen
+   eth_header_gen
      #(
        .FPGA_MAC(FPGA_MAC),
        .HOST_MAC(HOST_MAC),
@@ -199,10 +192,10 @@ module packet_tx
        .HOST_PORT(HOST_PORT),
        .HEADER_CHECKSUM(HEADER_CHECKSUM)
        )
-   header_gen
+   eth_header_gen
      (
-      .payload_bytes_i(s_axis_tuser_i*WORD_BYTES),
-      .output_header_o(header)
+      .payload_bytes(s_axis_tuser_i*WORD_BYTES),
+      .output_header(header)
 
       );
 
@@ -472,12 +465,12 @@ module packet_tx
    // crc generator
    crc_gen crc_gen_i
      (
-      .clk_i(clk_i),
-      .rst_i(rst_i || fcs_rst),
+      .clk(clk_i),
+      .rst(rst_i || fcs_rst),
 
       .data_in(tx_data),
-      .crc_i(fcs_en),
-      .crc_o(fcs)
+      .crc_en(fcs_en),
+      .crc_out(fcs)
 
       );
 
@@ -488,12 +481,12 @@ module packet_tx
 
      begin
 	if(rst_i) begin
-           tx_valid_o <= 0;
+           TX_EN_o <= 0;
 
 	end
 	else begin
-           tx_valid_o <= tx_valid;
-           tx_data_o   <= tx_data;
+           TX_EN_o <= tx_valid;
+           TXD_o   <= tx_data;
 
 	end
 

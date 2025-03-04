@@ -31,7 +31,7 @@ module ethernet #
    
     // Ports of Axi Master Bus Interface M00_AXIS
     input wire		m_axis_clk_i,
-    input wire		m_axis_reset_ni,
+    input wire		m_axis_rst_ni,
     
     output wire		m_axis_tvalid_o,
     output wire [7 : 0]	m_axis_tdata_o,
@@ -40,7 +40,7 @@ module ethernet #
 
     // Ports of Axi Slave Bus Interface S00_AXIS
     input wire		s_axis_clk_i,
-    input wire		s_axis_reset_ni,
+    input wire		s_axis_rst_ni,
     
     output wire		s_axis_tready_o,
     input wire [7 : 0]	s_axis_tdata_i,
@@ -67,14 +67,14 @@ module ethernet #
    packet_tx
      (
       .clk_i(s_axis_clk_i),
-      .rst_i(~s_axis_reset_ni),
+      .rst_i(~s_axis_rst_ni),
       .s_axis_tdata_i(s_axis_tdata_i),
       .S_AXIS_TVALID(s_axis_tvalid_i),
       .S_AXIS_TLAST(s_axis_tlast_i),
       .s_axis_tready_o(s_axis_tready_o),
       .s_axis_tuser_i(s_axis_tuser_i),
-      .tx_valid_o(ETH_TXEN),
-      .tx_data_o(ETH_TXD)
+      .TX_EN_o(ETH_TXEN),
+      .TXD_o(ETH_TXD)
       );
 
    packet_rx
@@ -90,12 +90,12 @@ module ethernet #
    packet_rx
      (
       .clk_i(m_axis_clk_i),
-      .rst_i(~m_axis_reset_ni),
+      .rst_i(~m_axis_rst_ni),
       .m_axis_tdata_o(m_axis_tdata_o),
       .m_axis_tvalid_o(m_axis_tvalid_o),
       .m_axis_tlast_o(m_axis_tlast_o),
-      .rx_valid_i(ETH_CRSDV),
-      .rx_data_i(ETH_RXD)
+      .RXDV_i(ETH_CRSDV),
+      .RXD_i(ETH_RXD)
       );
 
 endmodule

@@ -1,13 +1,6 @@
-// Converts RMII format Ethernet packets back to AXI Stream
-// Components:
-//      Triple-register input for clock domain crossing
-//      State Machine: Parses packets (IDLE → PREAMBLE_SFD → HEADER → DATA)
-//      Header Buffer: Stores and validates packet headers
-
-
 `timescale 1 ns / 1 ps
 
-module packet_rx 
+module packet_recv 
   #(
    parameter [31:0]  FPGA_IP = 32'hC0A80164,
    parameter [31:0]  HOST_IP = 32'hC0A80165,
@@ -20,8 +13,8 @@ module packet_rx
     )
    (
 
-    input [1:0]	   rx_data_i,
-    input	   rx_valid_i,
+    input [1:0]	   RXD_i,
+    input	   RXDV_i,
    
     input	   clk_i,
     input	   rst_i,
@@ -57,10 +50,10 @@ module packet_rx
 	     
 	  end                                                                   
 	else begin
-	   rxd_z[0] <= rx_data_i;
+	   rxd_z[0] <= RXD_i;
 	   rxd_z[2:1] <= rxd_z[1:0];
 	   
-	   rxdv_z[0] <= rxdv_i;
+	   rxdv_z[0] <= RXDV_i;
 	   rxdv_z[2:1] <= rxdv_z[1:0];
 	   if (packet_done & first_packet_count < FIRST_PACKET_IGNORE) begin
 	      first_packet_count <= first_packet_count + 1;
