@@ -3,7 +3,7 @@ import socket
 import time
 import threading
 
-interface = "enp45s0u2u1c2"
+interface = "enp45s0u1u1c2"
 
 my_ip = [10, 0, 0, 10]
 fpga_ip = [10, 0, 0, 240]
