@@ -5,6 +5,10 @@ create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
 # Add constraints file
 add_files -fileset constrs_1 -norecurse ../Nexys-A7-100T-Master.xdc
 
+
+#add_files ../../../rtl/alu/alu.sv
+#update_compile_order -fileset sources_1
+
 # Add IP repository
 set_property ip_repo_paths ../../../third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
 update_ip_catalog
@@ -54,6 +58,8 @@ generate_target all [get_ips]
 
 # Create block design
 create_bd_design "block_design"
+
+#create_bd_cell -type module -reference alu alu_0
 
 # Create RMII AXIS instance as a hierarchical module
 create_bd_cell -type module -reference rmii_axis_v1_0 rmii_axis_0
