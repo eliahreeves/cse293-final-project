@@ -9,6 +9,10 @@ add_files -fileset constrs_1 -norecurse ../Nexys-A7-100T-Master.xdc
 set_property ip_repo_paths ../../../third_party/HDLForBeginners_Toolbox/ip_repo [current_project]
 update_ip_catalog
 
+add_files -norecurse {
+../../build/rtl.sv2v.v
+}
+
 # Add Ethernet source files
 add_files -norecurse [list \
     "../../../third_party/HDLForBeginners_Toolbox/ip_repo/rmii_axis_1_0/src/rmii_axis_v1_0.v" \
@@ -55,6 +59,7 @@ generate_target all [get_ips]
 # Create block design
 create_bd_design "block_design"
 
+create_bd_cell -type module -reference alu alu
 # Create RMII AXIS instance as a hierarchical module
 create_bd_cell -type module -reference rmii_axis_v1_0 rmii_axis_0
 
@@ -69,12 +74,12 @@ make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_RXD]
 set_property CONFIG.HOST_MAC {0x34298f711e0f} [get_bd_cells rmii_axis_0]
 
 # add custom blocks
-create_bd_cell -type ip -vlnv fpgasforbeginners:toolbox:axis_gpio:1.0 axis_gpio_0
-make_bd_pins_external  [get_bd_pins axis_gpio_0/SW]
-make_bd_pins_external  [get_bd_pins axis_gpio_0/LED]
+# create_bd_cell -type ip -vlnv fpgasforbeginners:toolbox:axis_gpio:1.0 axis_gpio_0
+#make_bd_pins_external  [get_bd_pins alu/SW]
+#make_bd_pins_external  [get_bd_pins alu/LED]
 
-connect_bd_intf_net [get_bd_intf_pins axis_gpio_0/M00_AXIS] [get_bd_intf_pins rmii_axis_0/S00_AXIS]
-connect_bd_intf_net [get_bd_intf_pins rmii_axis_0/M00_AXIS] [get_bd_intf_pins axis_gpio_0/S00_AXIS]
+#connect_bd_intf_net [get_bd_intf_pins alu/M00_AXIS] [get_bd_intf_pins rmii_axis_0/S00_AXIS]
+#connect_bd_intf_net [get_bd_intf_pins rmii_axis_0/M00_AXIS] [get_bd_intf_pins alu/S00_AXIS]
 
 
 # create clock
@@ -95,8 +100,8 @@ set_property -dict [list \
 ] [get_bd_cells clk_wiz_0]
 make_bd_pins_external  [get_bd_pins clk_wiz_0/clk_in1]
 make_bd_pins_external  [get_bd_pins clk_wiz_0/clk_out2]
-connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins axis_gpio_0/s00_axis_aclk]
-connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins axis_gpio_0/m00_axis_aclk]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins alu/s_axis_aclk_i]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins alu/m_axis_aclk_i]
 connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins rmii_axis_0/m00_axis_aclk]
 connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins rmii_axis_0/s00_axis_aclk]
 
@@ -108,13 +113,13 @@ connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_0/sl
 make_bd_pins_external  [get_bd_pins proc_sys_reset_0/ext_reset_in]
 connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins rmii_axis_0/s00_axis_aresetn]
 connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins rmii_axis_0/m00_axis_aresetn]
-connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins axis_gpio_0/m00_axis_aresetn]
-connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins axis_gpio_0/s00_axis_aresetn]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins alu/m_axis_arst_ni]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins alu/s_axis_arst_ni]
 
 
 # set names to match constrains
-set_property name SW [get_bd_ports SW_0]
-set_property name LED [get_bd_ports LED_0]
+#set_property name SW [get_bd_ports SW_0]
+#set_property name LED [get_bd_ports LED_0]
 set_property name RESET_N [get_bd_ports ext_reset_in_0]
 set_property name CLK [get_bd_ports clk_in1_0]
 set_property name ETH_CRSDV [get_bd_ports ETH_CRSDV_0]

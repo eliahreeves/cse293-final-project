@@ -68,7 +68,7 @@ synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit: synth/build/rtl.
 	 vivado -quiet -nolog -nojournal -notrace -mode tcl \
 	  -source ../vivado.tcl
 
-vivado_nexysa7:
+vivado_nexysa7: synth/build/rtl.sv2v.v
 	rm -rf synth/vivado_nexysa7/build/nexysa7
 	mkdir -p synth/vivado_nexysa7/build
 	cd synth/vivado_nexysa7/build && \
