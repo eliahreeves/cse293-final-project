@@ -49,6 +49,6 @@ module alu #(
 
   assign s_axis_tready_o = m_axis_tready_i;
   assign m_axis_tvalid_o = s_axis_tvalid_i;
-  assign m_axis_tdata_o  = s_axis_tvalid_i;
+  assign m_axis_tdata_o  = s_axis_tdata_i + 1;
 
 endmodule
