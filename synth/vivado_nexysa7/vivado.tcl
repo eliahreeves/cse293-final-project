@@ -25,13 +25,10 @@ add_files -norecurse [list \
 # Create FIFO IP cores
 create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.2 -module_name data_fifo
 set_property -dict [list \
-    CONFIG.Component_Name {data_fifo} \
     CONFIG.Fifo_Implementation {Common_Clock_Block_RAM} \
     CONFIG.Input_Data_Width {8} \
     CONFIG.Output_Data_Width {8} \
     CONFIG.Data_Count {true} \
-    CONFIG.Full_Threshold_Assert_Value {14} \
-    CONFIG.Full_Threshold_Negate_Value {13} \
     CONFIG.Performance_Options {First_Word_Fall_Through} \
     CONFIG.Valid_Flag {true} \
     CONFIG.Reset_Type {Synchronous_Reset} \
@@ -44,7 +41,6 @@ set_property -dict [list \
     CONFIG.FIFO_DEPTH {16} \
     CONFIG.HAS_TLAST {1} \
     CONFIG.IS_ACLK_ASYNC {0} \
-    CONFIG.SYNCHRONIZATION_STAGES {2} \
     CONFIG.HAS_WR_DATA_COUNT {1} \
     CONFIG.HAS_PROG_FULL {1} \
     CONFIG.PROG_FULL_THRESH {10} \
@@ -63,6 +59,10 @@ create_bd_design "block_design"
 
 # Create RMII AXIS instance as a hierarchical module
 create_bd_cell -type module -reference rmii_axis_v1_0 rmii_axis_0
+
+# Set clock frequencies for AXI-Stream interfaces (50 MHz = 50000000 Hz)
+set_property CONFIG.FREQ_HZ 50000000 [get_bd_pins rmii_axis_0/m_axis_clk_i]
+set_property CONFIG.FREQ_HZ 50000000 [get_bd_pins rmii_axis_0/s_axis_clk_i]
 
 # Make RMII pins external (same as before)
 make_bd_pins_external [get_bd_pins rmii_axis_0/ETH_TXEN]

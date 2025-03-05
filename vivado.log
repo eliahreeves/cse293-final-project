@@ -1,38 +1,24 @@
 #-----------------------------------------------------------
-# Vivado v2024.2.1 (64-bit)
-# SW Build 5266912 on Sun Dec 15 09:03:31 MST 2024
-# IP Build 5264866 on Sun Dec 15 16:27:47 MST 2024
-# SharedData Build 5264680 on Wed Dec 11 12:48:36 MST 2024
-# Start of session at: Fri Feb 28 14:55:45 2025
-# Process ID         : 24358
-# Current directory  : /home/erreeves/Documents/repos/cse293-final-project
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Mar  4 16:25:15 2025
+# Process ID         : 464678
+# Current directory  : /home/ericbreh/Documents/school/cse293-final-project
 # Command line       : vivado
-# Log file           : /home/erreeves/Documents/repos/cse293-final-project/vivado.log
-# Journal file       : /home/erreeves/Documents/repos/cse293-final-project/vivado.jou
-# Running On         : Arch-Laptop
-# Platform           : Arch
-# Operating System   : Arch Linux
-# Processor Detail   : 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
-# CPU Frequency      : 400.000 MHz
+# Log file           : /home/ericbreh/Documents/school/cse293-final-project/vivado.log
+# Journal file       : /home/ericbreh/Documents/school/cse293-final-project/vivado.jou
+# Running On         : fedora
+# Platform           : Fedora
+# Operating System   : Fedora Linux 41 (Workstation Edition)
+# Processor Detail   : Intel(R) Core(TM) i7-10610U CPU @ 1.80GHz
+# CPU Frequency      : 2500.135 MHz
 # CPU Physical cores : 4
 # CPU Logical cores  : 8
-# Host memory        : 16447 MB
-# Swap memory        : 17179 MB
-# Total Virtual      : 33626 MB
-# Available Virtual  : 32371 MB
+# Host memory        : 16367 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 24957 MB
+# Available Virtual  : 21830 MB
 #-----------------------------------------------------------
 start_gui
-open_project /home/erreeves/Documents/repos/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.xpr
-Scanning sources...
-Finished scanning sources
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/erreeves/Documents/repos/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/erreeves/Tools/Xilinx/Vivado/2024.2/data/ip'.
-open_bd_design {/home/erreeves/Documents/repos/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.srcs/sources_1/bd/block_design/block_design.bd}
-Reading block design file </home/erreeves/Documents/repos/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.srcs/sources_1/bd/block_design/block_design.bd>...
-Adding component instance block -- xilinx.com:module_ref:rmii_axis_v1_0:1.0 - rmii_axis_0
-Adding component instance block -- fpgasforbeginners:toolbox:axis_gpio:1.0 - axis_gpio_0
-Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
-Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
-Successfully read diagram <block_design> from block design file </home/erreeves/Documents/repos/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.srcs/sources_1/bd/block_design/block_design.bd>
-update_compile_order -fileset sources_1
