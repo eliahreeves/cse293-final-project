@@ -68,19 +68,19 @@ synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit: synth/build/rtl.
 	 vivado -quiet -nolog -nojournal -notrace -mode tcl \
 	  -source ../vivado.tcl
 
+# vivado_nexysa7:
+# 	rm -rf synth/vivado_nexysa7/build/nexysa7
+# 	mkdir -p synth/vivado_nexysa7/build
+# 	cd synth/vivado_nexysa7/build && \
+# 	 vivado -quiet -nolog -nojournal -notrace -mode tcl \
+# 	  -source ../vivado.tcl
+
 vivado_nexysa7:
 	rm -rf synth/vivado_nexysa7/build/nexysa7
 	mkdir -p synth/vivado_nexysa7/build
 	cd synth/vivado_nexysa7/build && \
 	 vivado -quiet -nolog -nojournal -notrace -mode tcl \
 	  -source ../vivado.tcl
-
-vivado_nexysa7_bd:
-	rm -rf synth/vivado_nexysa7/build/nexysa7
-	mkdir -p synth/vivado_nexysa7/build
-	cd synth/vivado_nexysa7/build && \
-	 vivado -quiet -nolog -nojournal -notrace -mode tcl \
-	  -source ../vivado-bd.tcl
 
 vivado_nexysa7_program: synth/vivado_nexysa7/build/nexysa7/nexysa7.runs/impl_1/block_design_wrapper.bit
 	sudo $(shell which openFPGALoader) -b nexys_a7_100 $<
