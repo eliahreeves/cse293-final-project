@@ -2,7 +2,7 @@ import tkinter as tk
 import socket
 import threading
 
-interface = "enp0s13f0u2u1c2"  # "enp45s0u2u1c2"
+interface = "enp0s13f0u1u1c2"  # "enp45s0u2u1c2"
 
 my_ip = [10, 0, 0, 126]
 fpga_ip = [10, 0, 0, 240]
@@ -109,6 +109,7 @@ class EthExampleApp:
             packet[42 + index] = ord(letter)
 
         self.s_inst.send(packet)
+        print(self.getSWValue())
 
     # def getSWValue(self):
     #     r = self.s_inst.recv(2000)

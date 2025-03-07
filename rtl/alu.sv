@@ -66,6 +66,7 @@ module alu #(
   assign s00_axis_tready = m00_axis_tready;
   assign m00_axis_tdata  = s00_axis_tdata;
   assign m00_axis_tvalid = s00_axis_tvalid;
+  assign m00_axis_tlast  = s00_axis_tlast;
 
 endmodule
 
