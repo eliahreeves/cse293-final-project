@@ -40,17 +40,19 @@ module alu #(
     input  wire         s_axis_tvalid_i,
 
     // Ports of Axi Master interface(SW -> S_AXIS)
-    input wire    m_axis_aclk_o,
-    input wire    m_axis_aresetn_o,
+    input wire    m_axis_aclk_i,
+    input wire    m_axis_arst_ni,
     output wire   m_axis_tvalid_o,
     output wire [7 : 0] m_axis_tdata_o,
     output wire   m_axis_tlast_o,
     output wire [11:0]  m_axis_tuser_o,
-    input wire    m_axis_tready_i
-);
+    input wire    m_axis_tready_i,
 
+    output wire [15:0] leds_o
+);
+  assign leds_o = 'd45;
   assign s_axis_tready_o = m_axis_tready_i;
   assign m_axis_tvalid_o = s_axis_tvalid_i;
-  assign m_axis_tdata_o  = s_axis_tvalid_i;
+  assign m_axis_tdata_o = s_axis_tvalid_i;
 
 endmodule

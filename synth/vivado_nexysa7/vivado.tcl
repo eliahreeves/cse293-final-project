@@ -1,5 +1,5 @@
 
-# start_gui
+start_gui
 
 create_project nexysa7 nexysa7 -part xc7a100tcsg324-1
 
@@ -26,8 +26,7 @@ set_property CONFIG.HOST_MAC {0x34298f711e0f} [get_bd_cells rmii_axis_0]
 create_bd_cell -type module -reference alu alu
 set_property CONFIG.FREQ_HZ 50000000 [get_bd_intf_pins /alu/m_axis_o]
 set_property CONFIG.FREQ_HZ 50000000 [get_bd_intf_pins /alu/s_axis_i]
-#make_bd_pins_external  [get_bd_pins alu/SW]
-#make_bd_pins_external  [get_bd_pins alu/LED]
+make_bd_pins_external  [get_bd_pins alu/leds_o]
 
 connect_bd_intf_net [get_bd_intf_pins alu/m_axis_o] [get_bd_intf_pins rmii_axis_0/S00_AXIS]
 connect_bd_intf_net [get_bd_intf_pins rmii_axis_0/M00_AXIS] [get_bd_intf_pins alu/s_axis_i]
