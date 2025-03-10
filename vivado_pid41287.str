@@ -1,0 +1,194 @@
+/*
+
+AMD Vivado v2024.2 (64-bit) [Major: 2024, Minor: 2]
+SW Build: 5239630 on Fri Nov 08 22:34:34 MST 2024
+IP Build: 5239520 on Sun Nov 10 16:12:51 MST 2024
+IP Build: 5239520 on Sun Nov 10 16:12:51 MST 2024
+
+Process ID (PID): 41287
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Mon Mar 10 13:59:37 PDT 2025
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Fedora release 41 (Forty One)
+OS Version: 6.12.15-200.fc41.x86_64
+OS Architecture: amd64
+Available processors (cores): 8
+LSB Release Description: Fedora release 41 (Forty One)
+
+Display: 0
+Screen size: 1920x1080
+Local screen bounds: x = 0, y = 0, width = 1920, height = 1080
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+OS font scaling: 100%
+Anti-Alias Enabled: true
+
+Java version: 	21.0.1 64-bit
+
+Java home: 	/home/ericbreh/Utils/Xilinx/Vivado/2024.2/tps/lnx64/jre21.0.1_12
+Java executable: 	/home/ericbreh/Utils/Xilinx/Vivado/2024.2/tps/lnx64/jre21.0.1_12/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:ParallelGCThreads=4, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	ericbreh
+User home directory: /home/ericbreh
+User working directory: /home/ericbreh/Github/cse293-final-project
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /home/ericbreh/Utils/Xilinx/Vivado
+HDI_APPROOT: /home/ericbreh/Utils/Xilinx/Vivado/2024.2
+RDI_DATADIR: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/data
+RDI_BINDIR: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/bin
+
+Vivado preferences file: /home/ericbreh/.Xilinx/Vivado/2024.2/vivado.xml
+Vivado preferences directory: /home/ericbreh/.Xilinx/Vivado/2024.2/
+Vivado layouts directory: /home/ericbreh/.Xilinx/Vivado/2024.2/data/layouts
+PlanAhead jar file: 	/home/ericbreh/Utils/Xilinx/Vivado/2024.2/lib/classes/planAhead.jar
+Vivado log file: 	/home/ericbreh/Github/cse293-final-project/vivado.log
+Vivado journal file: 	/home/ericbreh/Github/cse293-final-project/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-41287-eduroam-169-233-240-236.ucsc.edu
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+FNM_MULTISHELL_PATH: /run/user/1000/fnm_multishells/40578_1741640295873
+RDI_APPROOT: /home/ericbreh/Utils/Xilinx/Vivado/2024.2
+RDI_BASEROOT: /home/ericbreh/Utils/Xilinx/Vivado
+RDI_BINROOT: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/bin
+RDI_BUILD: yes
+RDI_DATADIR: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/data
+RDI_INSTALLROOT: /home/ericbreh/Utils/Xilinx
+RDI_INSTALLVER: 2024.2
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 21.0.1_12
+RDI_LIBDIR: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/lib/lnx64.o/Default:/home/ericbreh/Utils/Xilinx/Vivado/2024.2/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /home/ericbreh/Utils/Xilinx/Vitis/2024.2/bin:/home/ericbreh/Utils/Xilinx/Vivado/2024.2/ids_lite/ISE/bin/lin64
+RDI_PROG: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /home/ericbreh/Github/cse293-final-project:eduroam-169-233-240-236.ucsc.edu_1741640359_41242
+RDI_SHARED_DATA: /home/ericbreh/Utils/Xilinx/SharedData/2024.2/data
+RDI_TPS_ROOT: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/tps/lnx64
+RDI_USE_JDK21: True
+SHELL: /usr/bin/zsh
+XILINX: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/ids_lite/ISE
+XILINX_DSP: /home/ericbreh/Utils/Xilinx/Vivado/2024.2/ids_lite/ISE
+XILINX_HLS: /home/ericbreh/Utils/Xilinx/Vitis/2024.2
+XILINX_PLANAHEAD: /home/ericbreh/Utils/Xilinx/Vivado/2024.2
+XILINX_SDK: /home/ericbreh/Utils/Xilinx/Vitis/2024.2
+XILINX_VITIS: /home/ericbreh/Utils/Xilinx/Vitis/2024.2
+XILINX_VIVADO: /home/ericbreh/Utils/Xilinx/Vivado/2024.2
+_JAVA_AWT_WM_NONREPARENTING: 1
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 1,362 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // t (PAResourceEtoH.GettingStartedView_OPEN_PROJECT)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,381 MB. GUI used memory: 71 MB. Current time: 3/10/25, 1:59:38 PM PDT
+setFileChooser("/home/ericbreh/Github/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.xpr");
+// Opening Vivado Project: /home/ericbreh/Github/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.xpr. Version: Vivado v2024.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 131 MB (+134556kb) [00:00:21]
+// [Engine Memory]: 1,458 MB (+1377118kb) [00:00:21]
+// [Engine Memory]: 1,605 MB (+78327kb) [00:00:22]
+// [GUI Memory]: 144 MB (+6755kb) [00:00:23]
+// [Engine Memory]: 1,688 MB (+2394kb) [00:00:23]
+// WARNING: HEventQueue.dispatchEvent() is taking  3061 ms.
+// Tcl Message: open_project /home/ericbreh/Github/cse293-final-project/synth/vivado_nexysa7/build/nexysa7/nexysa7.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ericbreh/Github/cse293-final-project/third_party/HDLForBeginners_Toolbox/ip_repo'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/ericbreh/Utils/Xilinx/Vivado/2024.2/data/ip'. 
+// Project name: nexysa7; location: /home/ericbreh/Github/cse293-final-project/synth/vivado_nexysa7/build/nexysa7; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // bh (Open Project Progress)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Open Hardware Manager]", 22, true); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree) - Node
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl (Dont Echo) Command: 'rdi::info_commands get_hw_probes'
+// Tcl (Dont Echo) Command: 'load_features labtools'
+// TclEventType: LOAD_FEATURE
+// TclEventType: HW_SESSION_OPEN
+// WARNING: HEventQueue.dispatchEvent() is taking  2022 ms.
+// Tcl Message: open_hw_manager 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,803 MB. GUI used memory: 80 MB. Current time: 3/10/25, 1:59:55 PM PDT
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // x (PAResourceOtoP.PAViews_PROJECT_SUMMARY, PlanAheadTabProject Summary)
+dismissDialog("Open Hardware Manager"); // bh (Open Hardware Manager Progress)
+// [GUI Memory]: 152 MB (+694kb) [00:00:30]
+// [Engine Memory]: 1,803 MB (+32585kb) [00:00:30]
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // aq (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-2222] Launching hw_server... INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2024.2   **** Build date : Oct 29 2024 at 10:16:47     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2024.2.0   ****** Build date   : Oct 30 2024-11:19:07     **** Build number : 2024.2.1730312347       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.    
+dismissDialog("Auto Connect"); // bh (Auto Connect Progress)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 20s
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 11 seconds
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // aq (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2024.2.0   ****** Build date   : Oct 30 2024-11:19:07     **** Build number : 2024.2.1730312347       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.    
+dismissDialog("Auto Connect"); // bh (Auto Connect Progress)

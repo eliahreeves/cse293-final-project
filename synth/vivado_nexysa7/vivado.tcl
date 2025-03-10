@@ -26,7 +26,8 @@ set_property CONFIG.HOST_MAC {0x34298f711e0f} [get_bd_cells rmii_axis_0]
 create_bd_cell -type module -reference alu alu
 set_property CONFIG.FREQ_HZ 50000000 [get_bd_intf_pins /alu/m_axis_o]
 set_property CONFIG.FREQ_HZ 50000000 [get_bd_intf_pins /alu/s_axis_i]
-make_bd_pins_external  [get_bd_pins alu/leds_o]
+#make_bd_pins_external  [get_bd_pins alu/SW]
+make_bd_pins_external  [get_bd_pins alu/LED]
 
 connect_bd_intf_net [get_bd_intf_pins alu/m_axis_o] [get_bd_intf_pins rmii_axis_0/S00_AXIS]
 connect_bd_intf_net [get_bd_intf_pins rmii_axis_0/M00_AXIS] [get_bd_intf_pins alu/s_axis_i]
@@ -83,7 +84,7 @@ connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins al
 
 # set names to match constrains
 #set_property name SW [get_bd_ports SW_0]
-#set_property name LED [get_bd_ports LED_0]
+set_property name LED [get_bd_ports LED_0]
 set_property name RESET_N [get_bd_ports ext_reset_in_0]
 set_property name CLK [get_bd_ports clk_in1_0]
 # set_property name UART_RXD_OUT [get_bd_ports UART_TX_0]
@@ -113,4 +114,4 @@ wait_on_run impl_1
 launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 
-exit
+# exit
