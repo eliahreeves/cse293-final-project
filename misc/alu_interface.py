@@ -81,7 +81,7 @@ class AluInterface:
 # Example usage:
 if __name__ == "__main__":
     # Network configuration
-    INTERFACE = "enp0s13f0u1u1c2"
+    INTERFACE = "enp45s0u2u1c2"
     MY_IP = [127, 0, 0, 1]
     FPGA_IP = [10, 0, 0, 240]
     MY_MAC = b"\x34\x29\x8f\x71\x1e\x0f"

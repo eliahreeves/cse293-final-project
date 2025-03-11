@@ -81,9 +81,6 @@ vivado_nexysa7_program: synth/vivado_nexysa7/build/nexysa7/nexysa7.runs/impl_1/b
 vivado_basys3_program: synth/vivado_basys3/build/basys3/basys3.runs/impl_1/basys3.bit
 	sudo $(shell which openFPGALoader) -b vivado_basys3 $<
 
-test:
-	sudo /usr/bin/python /home/ericbreh/Documents/school/cse293-final-project/misc/test.py
-
 clean:
 	rm -rf \
 	 *.memh *.memb \
