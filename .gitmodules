@@ -1,3 +1,3 @@
-[submodule "third_party/HDLForBeginners_Toolbox"]
-	path = third_party/HDLForBeginners_Toolbox
-	url = git@github.com:HDLForBeginners/Toolbox.git
+[submodule "third_party/Nexys-4-DDR-Ethernet-Mac"]
+	path = third_party/Nexys-4-DDR-Ethernet-Mac
+	url = git@github.com:chasep255/Nexys-4-DDR-Ethernet-Mac.git
