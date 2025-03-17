@@ -44,15 +44,19 @@ The primary objective of our final project was to establish basic ethernet commu
 
 \subsection*{Alex Forencich Ethernet IP}
 
-The first Ethernet IP we explored was the Alex Forencich Ethernet IP. This IP is a widely used open-source Ethernet MAC implementation for FPGAs. However, Alex Forencich does not have an ethernet IP for the Nexys 4 DDR or the Nexyz A7, and attempts to utilize the IP designed for the Nexys video was unsuccessful as the boards use different ethernet standards.
+The first Ethernet IP we explored was the Alex Forencich Ethernet IP. This IP is a widely used open-source Ethernet MAC implementation for FPGAs. However, Alex Forencich does not have an Ethernet IP for the Nexys 4 DDR or the Nexyz A7, and attempts to utilize the IP designed for the Nexys video was unsuccessful as the boards use different Ethernet standards.
 
 \subsection*{"FPGAs for Beginners" YouTube tutorial}
 
-We were able to find and follow along with a YouTube tutorial series by "FPGAs for Beginners" that walks through the process of using the FPGA's for Beginners Ethernet IP to create a basic ethernet communication with the Nexys A7 board. With this tutorial we were able to implement basic communication between the FPGA and a computer, allowing us to turn on leds and send values from switches to the computer. This seemed very promising, and we thought it would be simple to extend this and connect the ALU. However, we ran into challenges trying to expand on this IP. The IP was not documented and did not follow standard conventions, making it difficult to understand and modify. We also ran into a learning curve of figuring out how to extend a Vivado block diagram project.
+We were able to find and follow along with a YouTube tutorial series by "FPGAs for Beginners" that walks through the process of using the FPGA's for Beginners Ethernet IP to create a basic Ethernet communication with the Nexys A7 board. With this tutorial we were able to implement basic communication between the FPGA and a computer, allowing us to turn on LEDs and send values from switches to the computer. This seemed very promising, and we thought it would be simple to extend this and connect the ALU. However, we ran into challenges trying to expand on this IP. The IP was not documented and did not follow standard conventions, making it difficult to understand and modify. We also ran into a learning curve of figuring out how to extend a Vivado block diagram project.
 
 \subsection*{Nexys-4-DDR-Ethernet-MAC}
 
-After struggling with the previous IP, we decided to try the Nexys-4-DDR-Ethernet-MAC IP. This IP was better documented, and was easier to understand and modify. It also did not use a Vivado block diagram. Using this IP, we were working on basic ethernet communication allowing the board to echo back and send values to the leds. However due to time constraints we were unable to fully debug this functionality or connect it to the ALU.
+After struggling with the previous IP, we decided to try the Nexys-4-DDR-Ethernet-MAC IP. This IP was better documented, and was easier to understand and modify. It also did not use a Vivado block diagram. Using this IP, we were working on basic Ethernet communication allowing the board to echo back and send values to the LEDs. However due to time constraints we were unable to fully debug this functionality or connect it to the ALU.
+\section*{Final Product}
 
+By using the aforementioned Nexys-4-DDR-Ethernet-MAC, we were able to send data to the FPGA, and the FPGA was able to respond. Unfortunate, we had some problems using the AXI stream interface, ad due to the limited time we had remaining we were unable to debug them. The FPGA successfully received a packet and verified the MAC addresses to confirm that the packet was meant for it. After confirming that the packet was meant for it the FPGA would set the LEDs to the first two bytes of the packet. After receiving the first valid packet, the FPGA would stop accepting further packets. This behavior is likely due to an improperly handled tlast signal.
+
+In this project we learned a lot about tcl scripts and the different ways to program FPGAs using viviado. Unfortunately, we did not complete very much of our original goals by the end of the quarter, but by the end we were making a lot of progress.
 
 \end{document}
